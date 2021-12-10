@@ -6,36 +6,56 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-<h:head>
-    <title>Login screen</title>
-</h:head>
 
-<h:body>
-    <h1>Login screen</h1>
+<f:view>
+    <ui:composition template="/WEB-INF/templates/template.xhtml">
+        <ui:define name="title">#{txt['index']}</ui:define>
+        <ui:define name="content">
 
-<!--
+            <h2 class="text-decoration-underline mb-5">#{txt['index.title']}</h2>
 
-    <h:form>
-
-        <div class="card">
-            <h5>Login :</h5>
-            <div class="p-field p-grid">
-                <p:outputLabel for="login" styleClass="p-col-fixed" style="width:100px"/>
-                <div class="p-col">
-                    <p:inputText id="login" value="#{loginBean.login}"/>
+            <div class="row mt-5 mb-4">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-5">
+                    <h:graphicImage class="mr-2 img-fluid rounded" value="/resources/pictures/indexPage/index1.jpg"/>
                 </div>
+                <div class="col-lg-5">
+                    <h4>#{txt['index.content.title1']}</h4>
+                    <hr/>
+                    <h:outputText value="#{txt['index.content.text1']}"/>
+                </div>
+                <div class="col-lg-1"></div>
             </div>
-        </div>
 
-        <p:commandButton action="#{loginBean.returnAction}" value="Connect" />
+            <div class="row mt-4 mb-4">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-5">
+                    <h:graphicImage class="mr-2 img-fluid rounded" value="/resources/pictures/indexPage/index2.jpg"/>
+                </div>
+                <div class="col-lg-5">
+                    <h4>#{txt['index.content.title2']}</h4>
+                    <hr/>
+                    <h:outputText value="#{txt['index.content.text2']}"/>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
 
-    </h:form>
+            <div class="row mt-4 mb-4">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-5">
+                    <h:graphicImage class="mr-2 img-fluid rounded" value="/resources/pictures/indexPage/index3.jpg"/>
+                </div>
+                <div class="col-lg-5">
+                    <h4>#{txt['index.content.title3']}</h4>
+                    <hr/>
+                    <h:outputText value="#{txt['index.content.text3']}"/>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
 
-    <div class="card">
-        <p:link outcome="brand" value="Brand">
+        </ui:define>
+    </ui:composition>
+</f:view>
 
-        </p:link>
-    </div>
-    -->
-</h:body>
 </html>
+

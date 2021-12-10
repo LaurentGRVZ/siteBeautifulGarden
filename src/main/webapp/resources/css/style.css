@@ -1,0 +1,22 @@
+/*Color menubar*/
+
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text
+{color:black;}
+
+.pi-book:before
+{color: black;}
+
+.pi-home:before
+{color: black;}
+
+.pi-shopping-cart:before
+{color: black;}
+
+.pi-flag:before
+{color: black}
+
+.pi-user:before
+{color: black;}
+
+.pi-key:before
+{color: black}

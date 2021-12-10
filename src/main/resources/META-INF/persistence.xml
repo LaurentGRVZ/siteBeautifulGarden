@@ -4,41 +4,46 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
 
-        <persistence-unit name="stockmanagement" transaction-type="JTA">
-            <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-            <jta-data-source>java:comp/env/jdbc/stockmanagement</jta-data-source>
-            <class>be.atc.entities.Address</class>
-            <class>be.atc.entities.Brand</class>
-            <class>be.atc.entities.Carrier</class>
-            <class>be.atc.entities.Category</class>
-            <class>be.atc.entities.City</class>
-            <class>be.atc.entities.Country</class>
-            <class>be.atc.entities.CustomerOrder</class>
-            <class>be.atc.entities.CustomerOrderDocumentType</class>
-            <class>be.atc.entities.DocumentType</class>
-            <class>be.atc.entities.Item</class>
-            <class>be.atc.entities.ItemCategory</class>
-            <class>be.atc.entities.ItemElement</class>
-            <class>be.atc.entities.ItemStockArea</class>
-            <class>be.atc.entities.Packaging</class>
-            <class>be.atc.entities.Permission</class>
-            <class>be.atc.entities.PermissionRole</class>
-            <class>be.atc.entities.ReturnItem</class>
-            <class>be.atc.entities.Rma</class>
-            <class>be.atc.entities.Role</class>
-            <class>be.atc.entities.ShippingOption</class>
-            <class>be.atc.entities.StockArea</class>
-            <class>be.atc.entities.Supplier</class>
-            <class>be.atc.entities.SupplierOrder</class>
-            <class>be.atc.entities.SupplierOrderItem</class>
-            <class>be.atc.entities.Truck</class>
-            <class>be.atc.entities.TruckModel</class>
-            <class>be.atc.entities.User</class>
-            <class>be.atc.entities.UserAddress</class>
-            <properties>
-                <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/stockmanagement"/>
-                <property name="eclipselink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            </properties>
-        </persistence-unit>
+    <persistence-unit name="ebusiness" transaction-type="JTA">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <jta-data-source>java:comp/env/jdbc/ebusiness</jta-data-source>
+        <class>be.ebusiness.entities.Address</class>
+        <class>be.ebusiness.entities.AddressUser</class>
+        <class>be.ebusiness.entities.Answer</class>
+        <class>be.ebusiness.entities.Brand</class>
+        <class>be.ebusiness.entities.CarrierOrder</class>
+        <class>be.ebusiness.entities.Carrier</class>
+        <class>be.ebusiness.entities.Category</class>
+        <class>be.ebusiness.entities.City</class>
+        <class>be.ebusiness.entities.ContactPerson</class>
+        <class>be.ebusiness.entities.Country</class>
+        <class>be.ebusiness.entities.DocumentType</class>
+        <class>be.ebusiness.entities.ItemElement</class>
+        <class>be.ebusiness.entities.Item</class>
+        <class>be.ebusiness.entities.ItemCategory</class>
+        <class>be.ebusiness.entities.ItemStorageLocation</class>
+        <class>be.ebusiness.entities.Message</class>
+        <class>be.ebusiness.entities.Order</class>
+        <class>be.ebusiness.entities.OrderDocumentType</class>
+        <class>be.ebusiness.entities.Packaging</class>
+        <class>be.ebusiness.entities.Permission</class>
+        <class>be.ebusiness.entities.ReturnItem</class>
+        <class>be.ebusiness.entities.Rma</class>
+        <class>be.ebusiness.entities.Role</class>
+        <class>be.ebusiness.entities.RolePermission</class>
+        <class>be.ebusiness.entities.StorageArea</class>
+        <class>be.ebusiness.entities.StorageLocation</class>
+        <class>be.ebusiness.entities.SupplierOrder</class>
+        <class>be.ebusiness.entities.SupplierOrderItem</class>
+        <class>be.ebusiness.entities.Supplier</class>
+        <class>be.ebusiness.entities.TypeUser</class>
+        <class>be.ebusiness.entities.User</class>
+        <class>be.ebusiness.entities.VatRates</class>
+        <properties>
+            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/ebusiness"/>
+            <property name="eclipselink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+        </properties>
+    </persistence-unit>
 
 </persistence>
+

@@ -1,4 +1,4 @@
-<Context path="/stockmanagement" docBase="stockmanagement" reloadable="true"
+<Context path="/ebusiness" docBase="ebusiness" reloadable="true"
          crossContext="true">
     <!-- maxActive: Maximum number of dB connections in pool. Make sure you
     configure your mysqld max_connections large enough to handle
@@ -21,11 +21,11 @@
     -->
     <!-- url: The JDBC connection url for connecting to your MySQL dB.
     -->
-    <Resource name="jdbc/stockmanagement" auth="Container" type="javax.sql.DataSource"
+    <Resource name="jdbc/ebusiness" auth="ebusiness" type="javax.sql.DataSource"
               maxActive="100" maxIdle="30" maxWait="10000"
               username="root" password=""
               driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://localhost:3306/stockmanagement?autoReconnect=true"/>
+              url="jdbc:mysql://localhost:3306/ebusiness?autoReconnect=true"/>
 
     <Resource name="BeanManager"
               auth="Container"

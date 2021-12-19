@@ -1,18 +1,14 @@
 # Beautiful Garden :herb: :deciduous_tree: :sunflower:
 
-## Title 
-
-siteBeautifulGarden  
-
-## Author
+## Author :man_technologist:
 
 Gravez Laurent :smiley:
 
 gravezlaurent@hotmail.com :email:
 
-## Description 
+## Description :mag:
 
-This is an online sales site for garden equipment in ** three languages. ** :fr: :uk: :netherlands:
+This is an online sales site for garden equipment in **three languages.** :fr: :uk: :netherlands:
  
 It allows : 
 
@@ -23,7 +19,7 @@ It allows :
 
 This site was designed to showcase my skills in computer development.
 
-## Technologies :computer: :mag:
+## Technologies :computer: 
 
 **IDE :** Intellij
 
@@ -45,6 +41,6 @@ This site was designed to showcase my skills in computer development.
 
 **Logging tools :** Log4j 2.17 (**Warning :** Previous versions are deprecated due to vulnerability) 
 
-## Links for Emoji
+## Links for Emoji 	:arrow_right:
 
 https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#computer

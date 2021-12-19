@@ -45,6 +45,8 @@ This site was designed to showcase my skills in computer development.
 
 **Logging tools :** Log4j 2.17 (**Warning :** Previous versions are deprecated due to vulnerability) 
 
-## Links for Emoji 	:arrow_right:
+## Links for Emoji and badge 	:arrow_right:
 
 https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#computer
+
+https://forthebadge.com/

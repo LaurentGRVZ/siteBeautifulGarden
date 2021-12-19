@@ -7,11 +7,12 @@ siteBeautifulGarden
 ## Author
 
 Gravez Laurent :smiley:
+
 gravezlaurent@hotmail.com :email:
 
 ## Description 
 
-This is an online sales site for garden equipment in **three languages.** :fr: :uk: :netherlands:
+This is an online sales site for garden equipment in three languages. :fr: :uk: :netherlands:
  
 It allows : 
 

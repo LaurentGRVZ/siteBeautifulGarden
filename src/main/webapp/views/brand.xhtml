@@ -4,8 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Brand</title>
 </h:head>
@@ -28,7 +27,7 @@
         <p:commandButton action="#{brandBean.createBrand}" value="Connect" />-->
     </h:form>
 
-        <ui:repeat value="#{brandBean.brandList}" var="brand">
+        <ui:repeat value="#{BrandBean.brandList}" var="brand">
             <h:panelGroup class="col-md-4 m-4 border border-success rounded">
                 <h:outputLabel value="#{brand.label}"/>
             </h:panelGroup>

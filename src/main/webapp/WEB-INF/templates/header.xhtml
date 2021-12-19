@@ -1,79 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:f="http://xmlns.jcp.org/jsf/core"
+             xmlns:b="http://bootsfaces.net/ui">
 
-<div class="card mb-5">
+    <b:navBar brand="#{txt['navbar.brand']}" brandHref="#" fluid="true" inverse="true"
+              brandStyle="color:white; background-color:#1d6045;"
+              style="width: 100%; border-radius:0px;">
 
-    <h:form>
-        <p:growl id="messages"/>
+        <b:navbarLinks>
+            <b:navLink value="#{txt['navbar.link1']}" style="color:white;" outcome="index" iconAwesome="fa-home"/>
 
-        <p:menubar style="background-color: lightgray;" styleClass=".ui-menuitem-text{color:black}">
+            <b:dropMenu value="#{txt['navbar.link2']}" style="color:white;" iconAwesome="book">
+                <b:navLink value="#{txt['navbar.linkMenu1']}" outcome="decoration"/>
+                <b:navLink value="#{txt['navbar.linkMenu2']}" outcome="lawnmower"/>
+                <b:navLink value="#{txt['navbar.linkMenu3']}" outcome="gardenFurniture"/>
+                <b:navLink value="#{txt['navbar.linkMenu4']}" outcome="swimmingPool"/>
+                <b:navLink value="#{txt['navbar.linkMenu5']}" outcome="fountain"/>
+                <b:navLink value="#{txt['navbar.linkMenu6']}" outcome="tools"/>
+            </b:dropMenu>
 
-            <p:menuitem style="background-color: #1d6045; font-family: 'Comic Sans MS'">
-                <h:outputText value="#{txt['navbar.brand']}" style="color: white; font-size: larger; text-decoration: underline" icon="pi pi-home"/>
-            </p:menuitem>
+            <b:navLink value="#{txt['navbar.link3']}" style="color:white;" outcome="" iconAwesome="fa-shopping-cart"/>
+            <b:navLink value="#{txt['navbar.inscription']}" style="color:white;" outcome="" iconAwesome="fa-user"/>
+            <b:navLink value="#{txt['navbar.connection']}" style="color:white;" outcome="" iconAwesome="fa-key"/>
 
-            <p:divider layout="vertical"/>
+        </b:navbarLinks>
 
-            <p:menuitem value="#{txt['navbar.link1']}" outcome="index" icon="pi pi-home"/>
+        <!--<form class="navbar-form navbar-left hidden-md hidden-sm hidden-xs" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" ng:placeholder="Search"/>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>-->
 
-            <p:divider layout="vertical"/>
+        <!-- Management languages -->
 
-            <p:submenu label="#{txt['navbar.link2']}" icon="pi pi-book" style="font: black">
+        <h:form>
+            <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
+            <b:navbarLinks pull="right"><b:navLink value="    " href="#"/></b:navbarLinks>
+            <b:navbarLinks pull="right">
 
-                <p:menuitem value="#{txt['navbar.linkMenu1']}"/>
-                <p:separator/>
-                <p:menuitem value="#{txt['navbar.linkMenu2']}"/>
-                <p:separator/>
-                <p:menuitem value="#{txt['navbar.linkMenu3']}"/>
-                <p:separator/>
-                <p:menuitem value="#{txt['navbar.linkMenu4']}"/>
-                <p:separator/>
-                <p:menuitem value="#{txt['navbar.linkMenu5']}"/>
-                <p:separator/>
-                <p:menuitem value="#{txt['navbar.linkMenu6']}"/>
-            </p:submenu>
+                    <b:dropMenu value="#{txt['navbar.link4']}" style="color:white;" iconAwesome="fa-flag">
 
-            <p:divider layout="vertical"/>
+                        <b:navCommandLink class="text-white" value="#{txt['navbar.linkLanguage1']}" action="#{changeLocaleTool.setFrenchLocale}"/>
+                        <b:navCommandLink class="text-white" value="#{txt['navbar.linkLanguage2']}" action="#{changeLocaleTool.setEnglishLocale}"/>
+                        <b:navCommandLink class="text-white" value="#{txt['navbar.linkLanguage3']}" action="#{changeLocaleTool.setDutchLocale}"/>
 
-            <p:menuitem value="#{txt['navbar.link3']}" icon="pi pi-shopping-cart"/>
+                    </b:dropMenu>
 
-            <p:divider layout="vertical"/>
+            </b:navbarLinks>
+        </h:form>
 
-            <p:submenu label="#{txt['navbar.link4']}" icon="pi pi-flag">
-                <p:menuitem value="#{txt['navbar.linkLanguage1']}"/>
-                <p:separator/>
-                <p:menuitem value="#{txt['navbar.linkLanguage2']}" />
-                <p:separator/>
-                <p:menuitem value="#{txt['navbar.linkLanguage3']}" />
-            </p:submenu>
+    </b:navBar>
+</ui:fragment>
 
-            <p:divider layout="vertical"/>
-
-            <p:menuitem value="#{txt['navbar.inscription']}" icon="pi pi-user"/>
-
-            <p:divider layout="vertical"/>
-
-            <p:menuitem value="#{txt['navbar.connection']}" icon="pi pi-key"/>
-
-            <f:facet name="options">
-
-                <div class="ui-input-icon-left p-mr-2">
-                    <i class="pi pi-fw pi-search" />
-                    <p:inputText placeholder="Search" style="margin-right: 1em"/>
-                </div>
-
-                <p:button value="#{txt['navbar.deconnection']}" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"/>
-
-            </f:facet>
-
-        </p:menubar>
-    </h:form>
-</div>
-
-</html>

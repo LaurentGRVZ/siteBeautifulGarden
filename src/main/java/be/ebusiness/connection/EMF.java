@@ -12,7 +12,7 @@ import javax.persistence.Persistence;
 public final class EMF {
 
     private static EntityManagerFactory emfInstance =
-            Persistence.createEntityManagerFactory("stockmanagement"); // Nom de ton persistence-unit (persistence.xml)
+            Persistence.createEntityManagerFactory("ebusiness"); // Nom de ton persistence-unit (persistence.xml)
 
     private EMF() {}
 

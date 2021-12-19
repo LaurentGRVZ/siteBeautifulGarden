@@ -13,11 +13,78 @@
         </locale-config>
 
         <resource-bundle>
-            <base-name>languages</base-name>
+            <base-name>messages</base-name>
             <var>txt</var>
         </resource-bundle>
 
     </application>
+
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>brand</from-outcome>
+            <to-view-id>/views/brand.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <!-- Index -->
+
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/views/index.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- Footer -->
+
+        <navigation-case>
+            <from-outcome>conditionsSales</from-outcome>
+            <to-view-id>/views/footer/conditionsSales.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>termsDelivery</from-outcome>
+            <to-view-id>/views/footer/termsDelivery.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>jobs</from-outcome>
+            <to-view-id>/views/footer/jobs.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <!-- Categories -->
+
+        <navigation-case>
+            <from-outcome>decoration</from-outcome>
+            <to-view-id>/views/catalog/decoration.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>fountain</from-outcome>
+            <to-view-id>/views/catalog/fountain.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>gardenFurniture</from-outcome>
+            <to-view-id>/views/catalog/gardenFurniture.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>lawnmower</from-outcome>
+            <to-view-id>/views/catalog/lawnmower.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>swimmingPool</from-outcome>
+            <to-view-id>/views/catalog/swimmingPool.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>tools</from-outcome>
+            <to-view-id>/views/catalog/tools.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+    </navigation-rule>
 
     <navigation-rule>
         <from-view-id>/views/index.xhtml</from-view-id>
@@ -40,42 +107,6 @@
             <from-outcome>failed</from-outcome>
             <to-view-id>/views/test1.xhtml</to-view-id>
         </navigation-case>
-    </navigation-rule>
-
-    <navigation-rule>
-        <from-view-id>*</from-view-id>
-        <navigation-case>
-            <from-outcome>brand</from-outcome>
-            <to-view-id>/views/brand.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-
-        <!-- Index -->
-
-        <navigation-case>
-            <from-outcome>index</from-outcome>
-            <to-view-id>/views/index.xhtml</to-view-id>
-        </navigation-case>
-
-
-        <!-- Footer -->
-
-        <navigation-case>
-            <from-outcome>conditionsSales</from-outcome>
-            <to-view-id>/views/footer/conditionsSales.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>termsDelivery</from-outcome>
-            <to-view-id>/views/footer/termsDelivery.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>jobs</from-outcome>
-            <to-view-id>/views/footer/jobs.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-
-
     </navigation-rule>
 
 </faces-config>

@@ -1,5 +1,7 @@
 package be.ebusiness.entities;
 
+import be.ebusiness.enumerations.ReturnItemReasonEnum;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -25,14 +27,13 @@ public class ReturnItem implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "quantity")
+    @Column(name="quantity")
     @NotNull
     private int quantity;
 
-    @Basic
-    @Column(name = "reason")
+    @Column(name="reason")
     @NotNull
-    private Object reason;
+    private ReturnItemReasonEnum reason;
 
     @Column(name="created_at")
     private LocalDateTime createdAt;
@@ -69,13 +70,9 @@ public class ReturnItem implements Serializable {
         this.quantity = quantity;
     }
 
-    public Object getReason() {
-        return reason;
-    }
+    public ReturnItemReasonEnum getReason() { return reason; }
 
-    public void setReason(Object reason) {
-        this.reason = reason;
-    }
+    public void setReason(ReturnItemReasonEnum reason) { this.reason = reason; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
 

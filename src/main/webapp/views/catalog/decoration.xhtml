@@ -1,0 +1,57 @@
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:f="http://xmlns.jcp.org/jsf/core"
+             xmlns:b="http://bootsfaces.net/ui">
+
+    <ui:composition template="/WEB-INF/templates/template.xhtml">
+        <ui:define name="title">#{txt['decoration']}</ui:define>
+        <ui:define name="content">
+
+            <h1 style="text-decoration: underline">#{txt['decoration']}</h1>
+
+            <b:row style="margin-top: 60px;">
+                <b:column span="10" offset="1">
+                    <h:form>
+                        <b:dataTable value="#{decorationBean.itemCategoryList}" var="item">
+
+                            <b:dataTableColumn label="#{txt['product']}">
+                                <b:column span="2">
+                                    <h:graphicImage value="#{item.item.urlPicture}" width="100%"/>
+                                </b:column>
+                                <b:column span="7">
+                                    <h:outputText value="#{item.item.brand.label}"/><br/>
+                                    <h:outputText value="#{item.item.designation}"/>
+                                </b:column>
+                                <b:column span="3">
+                                    <h:outputText value="#{item.item.price * 1.21}" style="text-align: center;">
+                                        <f:convertNumber currencySymbol="€" type="currency" minFractionDigits="0"/>
+                                    </h:outputText>
+
+                                    <b:commandButton value="#{txt['button.addBasket']}" look="primary" iconAwesome="fa-cart-arrow-down" style="width:85%; margin:10px 0 10px;">
+
+                                    </b:commandButton>
+                                    <b:commandButton value="#{txt['button.detailedView']}" look="primary" iconAwesome="fa-search-plus" style="width:85%;">
+
+                                    </b:commandButton>
+                                </b:column>
+
+                            </b:dataTableColumn>
+
+                        </b:dataTable>
+                    </h:form>
+                </b:column>
+            </b:row>
+
+            <!-- Return link -->
+
+            <b:row style="margin: 50px auto 125px">
+                <b:column span="3" offset="9">
+                    <b:navLink outcome="index" value="#{txt['linkReturnHome']}"/>
+                </b:column>
+            </b:row>
+
+        </ui:define>
+    </ui:composition>
+
+</ui:fragment>

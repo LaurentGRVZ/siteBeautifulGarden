@@ -1,22 +1,26 @@
-/*Color menubar*/
+/*Navbar*/
 
-body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text
-{color:black;}
+.fa-home:before{
+    margin-right: 5px;
+}
 
-.pi-book:before
-{color: black;}
+.fa-book:before{
+    margin-right: 5px;
+}
 
-.pi-home:before
-{color: black;}
+.fa-shopping-cart:before{
+    margin-right: 5px;
+}
 
-.pi-shopping-cart:before
-{color: black;}
+.fa-user:before{
+    margin-right: 5px;
+}
 
-.pi-flag:before
-{color: black}
+.fa-key:before{
+    margin-right: 5px;
+}
 
-.pi-user:before
-{color: black;}
+.fa-flag:before{
+    margin-right: 5px;
+}
 
-.pi-key:before
-{color: black}

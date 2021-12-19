@@ -1,5 +1,8 @@
 package be.ebusiness.connection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -24,7 +27,7 @@ public class EntityFinderImpl<T> implements EntityFinder<T>, Serializable {
     }
 
     // Log4j
-    //private static Logger log = Logger.getLogger(EntityFinderImpl.class);
+    private static Logger log = LoggerFactory.getLogger(EntityFinderImpl.class);
 
     @Override
     public T findOne(T t, int id) {
@@ -37,10 +40,10 @@ public class EntityFinderImpl<T> implements EntityFinder<T>, Serializable {
 
             em.clear();
 
-            //log.debug("Bean " + t + " find from database: Ok");
+            log.debug("Bean " + t + " find from database: Ok");
         } finally {
             em.close();
-            // log.debug("Close em : Ok");
+            log.debug("Close em : Ok");
         }
 
         return t;
@@ -62,8 +65,8 @@ public class EntityFinderImpl<T> implements EntityFinder<T>, Serializable {
             }
             listT = (List<T>) query.getResultList();
 
-            //log.debug("List " + t + " size: " + listT.size());
-            //log.debug("Named query " + namedQuery + " find from database: Ok");
+            log.debug("List " + t + " size: " + listT.size());
+            log.debug("Named query " + namedQuery + " find from database: Ok");
         } finally {
 
             em.clear();
@@ -87,8 +90,8 @@ public class EntityFinderImpl<T> implements EntityFinder<T>, Serializable {
             }
             listT = (List<T>) query.getResultList();
 
-            //	log.debug("List " + t + " size: " + listT.size());
-            //	log.debug("Custom query " + customQuery + " find from database: Ok");
+            log.debug("List " + t + " size: " + listT.size());
+            log.debug("Custom query " + customQuery + " find from database: Ok");
         } finally {
 
             em.clear();
@@ -109,7 +112,7 @@ public class EntityFinderImpl<T> implements EntityFinder<T>, Serializable {
         while (itr.hasNext()) {
             Map.Entry<K, V> entry = itr.next();
             query.setParameter((String) entry.getKey(), entry.getValue());
-            //log.debug("entry.getValue: " + entry.getValue());
+            log.debug("entry.getValue: " + entry.getValue());
         }
     }
 

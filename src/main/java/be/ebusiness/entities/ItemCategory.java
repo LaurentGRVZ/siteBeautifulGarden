@@ -12,7 +12,8 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "items_categories", schema = "ebusiness")
+@Table(name="items_categories", schema = "ebusiness")
+@NamedQuery(name="ItemCategory.findAllItemByCategory", query="SELECT i FROM ItemCategory i WHERE i.category.id = :id")
 public class ItemCategory implements Serializable {
 
     //Properties
@@ -31,12 +32,12 @@ public class ItemCategory implements Serializable {
 
     //uni-directional many-to-one association to Items
     @ManyToOne
-    @JoinColumn(name="id_item")
+    @JoinColumn(name = "id_item")
     private Item item;
 
     //uni-directional many-to-one association to Categories
     @ManyToOne
-    @JoinColumn(name="id_category")
+    @JoinColumn(name = "id_category")
     private Category category;
 
 

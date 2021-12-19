@@ -1,5 +1,9 @@
 # Beautiful Garden :herb: :deciduous_tree: :sunflower:
 
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com)
+
 ## Author :man_technologist:
 
 Gravez Laurent :smiley:
@@ -20,8 +24,6 @@ It allows :
 This site was designed to showcase my skills in computer development.
 
 ## Technologies :computer: 
-
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
 **IDE :** Intellij
 

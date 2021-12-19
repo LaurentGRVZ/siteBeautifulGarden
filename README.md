@@ -21,6 +21,8 @@ This site was designed to showcase my skills in computer development.
 
 ## Technologies :computer: 
 
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+
 **IDE :** Intellij
 
 **Language :** Java 8

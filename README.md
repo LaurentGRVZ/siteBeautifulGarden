@@ -37,8 +37,6 @@ This site was designed to showcase my skills in computer development.
 
 **Framework :** JSF 2.3 with Bootsfaces 1.5
 
-**Security :** Shiro 1.8
-
 **API :** JPA
 
 **ORM :** EclipseLink

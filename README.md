@@ -35,7 +35,7 @@ This site was designed to showcase my skills in computer development.
 
 **Server :** Tomcat 9
 
-**Framework :** JSF 2.3 with Bootsfaces 1.5
+**Framework :** JSF 2.3 with Bootsfaces 1.5 (I use Bootsfaces because there is no burger menu on Primefaces)
 
 **API :** JPA
 

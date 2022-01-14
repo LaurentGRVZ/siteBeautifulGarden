@@ -1,0 +1,32 @@
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:f="http://xmlns.jcp.org/jsf/core"
+             xmlns:b="http://bootsfaces.net/ui">
+    <ui:composition template="/WEB-INF/templates/template.xhtml">
+        <ui:define name="title">#{txt['login']}</ui:define>
+        <ui:define name="content">
+
+            <h1 style="text-decoration: underline">#{txt['login']}</h1>
+
+            <b:form id="loginForm">
+
+                <b:inputText id="login" fieldId="username" name="username"
+                             value="#{loginBean.login}"
+                             label="Username"
+                             required="true"/>
+                <b:message for="@previous" />
+
+                <b:inputSecret id="pwd" fieldId="password" name="password"
+                               value="#{loginBean.pwd}"
+                               label="Password"
+                               required="true"/>
+                <b:message for="passwordDiv" />
+
+                <b:commandButton update="@form" value="Login" onclick=""/>
+            </b:form>
+
+
+        </ui:define>
+    </ui:composition>
+</ui:fragment>

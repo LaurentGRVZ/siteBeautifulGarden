@@ -15,6 +15,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "cities", schema = "ebusiness")
+@NamedQuery(name = "City.findAll", query = "SELECT c FROM City c")
 public class City implements Serializable {
 
     //Properties

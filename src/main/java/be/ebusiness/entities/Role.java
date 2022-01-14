@@ -15,6 +15,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "roles", schema = "ebusiness")
+@NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r")
+
 public class Role implements Serializable {
 
     //Properties

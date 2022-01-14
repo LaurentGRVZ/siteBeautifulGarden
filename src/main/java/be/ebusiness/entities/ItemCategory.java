@@ -14,6 +14,8 @@ import java.util.Objects;
 @Entity
 @Table(name="items_categories", schema = "ebusiness")
 @NamedQuery(name="ItemCategory.findAllItemByCategory", query="SELECT i FROM ItemCategory i WHERE i.category.id = :id")
+@NamedQuery(name="ItemCategory.findAllItemByIdCategoryAndSortByPrice", query="SELECT i FROM ItemCategory i WHERE i.category.id = :id ORDER BY i.item.price")
+@NamedQuery(name="ItemCategory.findAllItemByIdCategoryAndSortByBrand", query="SELECT i FROM ItemCategory i WHERE i.category.id = :id ORDER BY i.item.brand.label")
 public class ItemCategory implements Serializable {
 
     //Properties

@@ -17,10 +17,10 @@ import static be.ebusiness.services.ItemCategoryService.findAllItemByIdCategory;
 
 @Named
 @SessionScoped
-public class DecorationBean implements Serializable {
+public class GardenFurnitureBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private List<ItemCategory> itemCategoryList = findAllItemByIdCategory(1);
+    private List<ItemCategory> itemCategoryList = findAllItemByIdCategory(3);
     private String selectTypeSort;
     SortTool sortTool = new SortTool();
 

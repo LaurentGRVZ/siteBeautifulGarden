@@ -79,34 +79,39 @@
             <redirect/>
         </navigation-case>
         <navigation-case>
-            <from-outcome>tools</from-outcome>
-            <to-view-id>/views/catalog/tools.xhtml</to-view-id>
+            <from-outcome>tool</from-outcome>
+            <to-view-id>/views/catalog/tool.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <!-- Management user -->
+
+        <navigation-case>
+            <from-outcome>connection</from-outcome>
+            <to-view-id>/views/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>registration</from-outcome>
+            <to-view-id>/views/registration.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
 
     </navigation-rule>
 
     <navigation-rule>
-        <from-view-id>/views/index.xhtml</from-view-id>
+        <from-view-id>/views/registration.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>success</from-outcome>
-            <to-view-id>/views/test.xhtml</to-view-id>
+            <to-view-id>/views/login.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
         <navigation-case>
             <from-outcome>failed</from-outcome>
-            <to-view-id>/views/test1.xhtml</to-view-id>
+            <to-view-id>/views/registration.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/views/brand.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/views/test.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>failed</from-outcome>
-            <to-view-id>/views/test1.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
+
+
 
 </faces-config>

@@ -5,22 +5,22 @@
              xmlns:b="http://bootsfaces.net/ui">
 
     <ui:composition template="/WEB-INF/templates/template.xhtml">
-        <ui:define name="title">#{txt['gardenFurniture']}</ui:define>
+        <ui:define name="title">#{txt['tool']}</ui:define>
         <ui:define name="content">
 
-            <h1 style="text-decoration: underline">#{txt['gardenFurniture']}</h1>
+            <h1 style="text-decoration: underline">#{txt['tool']}</h1>
 
             <!-- Sort item -->
 
             <b:row style="margin-top: 40px;">
                 <b:column span="2" offset="10">
                     <h:form>
-                        <h:selectOneMenu value="#{gardenFurnitureBean.selectTypeSort}">
+                        <h:selectOneMenu value="#{toolBean.selectTypeSort}">
                             <f:selectItem itemValue="defaultSort" itemLabel="#{txt['sort.default']}"/>
                             <f:selectItem itemValue="price" itemLabel="#{txt['sort.price']}"/>
                             <f:selectItem itemValue="brand" itemLabel="#{txt['sort.brand']}"/>
 
-                            <f:ajax event="change" listener="#{gardenFurnitureBean.sortItem(gardenFurnitureBean.selectTypeSort, 3)}" render="output"/>
+                            <f:ajax event="change" listener="#{toolBean.sortItem(toolBean.selectTypeSort, 4)}" render="output"/>
 
                         </h:selectOneMenu>
                     </h:form>
@@ -32,7 +32,7 @@
             <b:row style="margin-top: 60px;" id="output">
                 <b:column span="10" offset="1">
 
-                    <ui:repeat value="#{gardenFurnitureBean.itemCategoryList}" var="item">
+                    <ui:repeat value="#{toolBean.itemCategoryList}" var="item">
                         <b:column span="12" style="border: 2px solid red; border-radius:10px; margin:20px 0 20px 0;">
 
                             <b:column span="2">

@@ -33,7 +33,7 @@ public class Address implements Serializable {
 
     @Column(name="number")
     @NotNull
-    private int number;
+    private String number;
 
     @Column(name="postbox")
     @Size(min = 1, max = 10)
@@ -69,13 +69,9 @@ public class Address implements Serializable {
         this.street = street;
     }
 
-    public int getNumber() {
-        return number;
-    }
+    public String getNumber() { return number; }
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
+    public void setNumber(String number) { this.number = number; }
 
     public String getPostbox() {
         return postbox;
@@ -114,7 +110,7 @@ public class Address implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
         return id == address.id &&
-                number == address.number &&
+                number.equals(address.number) &&
                 Objects.equals(street, address.street) &&
                 Objects.equals(postbox, address.postbox) &&
                 Objects.equals(createdAt, address.createdAt) &&

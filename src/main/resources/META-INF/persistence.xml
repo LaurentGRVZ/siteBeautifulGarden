@@ -40,8 +40,8 @@
         <class>be.ebusiness.entities.User</class>
         <class>be.ebusiness.entities.VatRates</class>
         <properties>
-            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/ebusiness"/>
-            <property name="eclipselink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ebusiness"/>
+            <property name="eclipselink.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
         </properties>
     </persistence-unit>
 

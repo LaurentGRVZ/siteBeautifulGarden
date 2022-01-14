@@ -1,0 +1,250 @@
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:f="http://xmlns.jcp.org/jsf/core"
+             xmlns:b="http://bootsfaces.net/ui">
+    <ui:composition template="/WEB-INF/templates/template.xhtml">
+        <ui:define name="title">#{txt['registration']}</ui:define>
+        <ui:define name="content">
+
+            <h1 style="text-decoration: underline; margin-bottom: 75px;">#{txt['registration']}</h1>
+
+            <b:form id="form">
+                <b:row>
+                    <b:column span="5" offset="1">
+
+                        <!-- Type of customer -->
+                        <b:selectOneMenu value="#{registrationBean.displayFieldCustomerPro}" required="true" label="#{txt['form.selectCustomer']}">
+                            <f:selectItem itemLabel="#{txt['form.customer1']}" itemValue="1" />
+                            <f:selectItem itemLabel="#{txt['form.customer2']}" itemValue="2" />
+                            <f:ajax event="change" execute="@this" render="fieldCustomer"/>
+                        </b:selectOneMenu>
+
+                    </b:column>
+                    <b:column span="5">
+
+                        <!-- Title -->
+                        <b:selectOneMenu value="#{registrationBean.title}" required="true" label="#{txt['form.selectTitle']}">
+                            <f:selectItem itemLabel="#{txt['form.title1']}" itemValue="1" />
+                            <f:selectItem itemLabel="#{txt['form.title2']}" itemValue="2" />
+                            <f:selectItem itemLabel="#{txt['form.title3']}" itemValue="3" />
+                        </b:selectOneMenu>
+
+                    </b:column>
+                </b:row>
+
+                <b:row>
+                    <b:column span="5" offset="1">
+
+                        <!-- Lastname -->
+                        <b:inputText id="lastname" fieldId="lastname" name="lastname"
+                                     value="#{registrationBean.user.lastname}"
+                                     label="#{txt['form.lastname']}"
+                                     required="true"
+                                     requiredMessage="#{txt['form.errorField']}"
+                                     validatorMessage="#{txt['form.errorLastname1']}"
+                                     onblur="value=value.capitalize()"
+                                     style="text-transform: capitalize">
+                            <!--Validation for international lastname -->
+                            <f:validateRegex pattern="^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,50}$"/>
+                        </b:inputText>
+                        <b:messages for="@previous" />
+
+                    </b:column>
+                    <b:column span="5">
+
+                        <!-- Firstname -->
+                        <b:inputText id="firstname" fieldId="firstname" name="firstname"
+                                     value="#{registrationBean.user.firstname}"
+                                     label="#{txt['form.firstname']}"
+                                     required="true"
+                                     requiredMessage="#{txt['form.errorField']}"
+                                     validatorMessage="#{txt['form.errorFirstname1']}"
+                                     onblur="value=value.capitalize()"
+                                     style="text-transform: capitalize">
+                            <!--Validation for international firstname -->
+                            <f:validateRegex pattern="^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,50}$"/>
+                        </b:inputText>
+                        <b:messages for="@previous" />
+
+                    </b:column>
+                </b:row>
+
+                <b:row>
+                    <b:column span="5" offset="1">
+
+                        <!-- Phone -->
+                        <b:inputText id="phone" fieldId="phone" name="phone"
+                                     value="#{registrationBean.user.phone}"
+                                     label="#{txt['form.phone']}"
+                                     required="true"
+                                     requiredMessage="#{txt['form.errorField']}"
+                                     validatorMessage="#{txt['form.errorPhone1']}">
+                            <f:validateRegex pattern="^[0-9]{8,25}$"/>
+                        </b:inputText>
+                        <b:messages for="@previous" />
+
+                    </b:column>
+                </b:row>
+
+                <!-- Block information customer pro -->
+                <b:formGroup id="fieldCustomer">
+
+                    <b:row>
+                        <b:column span="5" offset="1">
+
+                            <!-- Company number -->
+                            <b:inputText id="companyNumber" fieldId="companyNumber" name="companyNumber" rendered="#{registrationBean.displayFieldCustomerPro eq '2'}"
+                                         value="#{registrationBean.user.companyNumber}"
+                                         label="#{txt['form.companyNumber']}"
+                                         required="true"
+                                         requiredMessage="#{txt['form.errorField']}"
+                                         placeholder="#{txt['form.companyNumber.placeHolder']}">
+                                <f:validator validatorId="CompanyNbrValidator"/>
+                            </b:inputText>
+                            <b:messages for="@previous" />
+
+                        </b:column>
+                        <b:column span="5">
+
+                            <!-- Vat number -->
+                            <b:inputText id="vatNumber" fieldId="vatNumber" name="vatNumber" rendered="#{registrationBean.displayFieldCustomerPro eq '2'}"
+                                         value="#{registrationBean.user.vatNumber}"
+                                         label="#{txt['form.vatNumber']}"
+                                         required="true"
+                                         requiredMessage="#{txt['form.errorField']}"
+                                         placeholder="#{txt['form.vatNumber.placeHolder']}">
+                                <f:validator validatorId="VatValidator"/>
+                            </b:inputText>
+                            <b:messages for="@previous" />
+
+                        </b:column>
+                    </b:row>
+
+                </b:formGroup>
+
+                <!-- Address -->
+
+                <b:row>
+                    <b:column span="5" offset="1">
+
+                        <!-- Street -->
+                        <b:inputText id="street" fieldId="street" name="street"
+                                     value="#{registrationBean.address.street}"
+                                     label="#{txt['form.street']}"
+                                     required="true"
+                                     requiredMessage="#{txt['form.errorField']}"
+                                     onblur="value=value.capitalize()"
+                                     style="text-transform: capitalize"
+                                     validatorMessage="#{txt['form.errorNumber']}">
+                            <f:validateRegex pattern="^[A-Za-z ,.'-]{2,100}$"/>
+                        </b:inputText>
+                        <b:messages for="@previous" />
+
+                    </b:column>
+                    <b:column span="5">
+
+                        <!-- Number -->
+                        <b:inputText id="number" fieldId="number" name="number"
+                                     value="#{registrationBean.address.number}"
+                                     label="#{txt['form.number']}"
+                                     required="true"
+                                     requiredMessage="#{txt['form.errorField']}"
+                                     validatorMessage="#{txt['form.errorNumber']}">
+                            <f:validateRegex pattern="^[0-9]{1,5}$"/>
+                        </b:inputText>
+                        <b:messages for="@previous" />
+
+                    </b:column>
+                </b:row>
+
+                <b:row>
+                    <b:column span="5" offset="1">
+
+                        <!-- Postbox -->
+                        <b:inputText id="postbox" fieldId="postbox" name="postbox"
+                                     value="#{registrationBean.address.postbox}"
+                                     label="#{txt['form.postbox']}">
+                        </b:inputText>
+                        <b:messages for="@previous" />
+
+                    </b:column>
+                    <b:column span="5">
+
+                        <!-- City -->
+                        <b:selectOneMenu value="#{registrationBean.idCity}" required="true" label="#{txt['form.selectCity']}">
+                            <f:selectItems value="#{registrationBean.cityList}" var="cityValue"
+                                           itemLabel="#{cityValue.zipCode} - #{cityValue.label}" itemValue="#{cityValue.id}" />
+                        </b:selectOneMenu>
+
+                    </b:column>
+                </b:row>
+
+                <b:row>
+                    <b:column span="5" offset="1">
+
+                        <!-- Login -->
+                        <b:inputText id="login" fieldId="login" name="login"
+                                     value="#{registrationBean.user.mail}"
+                                     label="#{txt['form.mail']}"
+                                     required="true"
+                                     requiredMessage="#{txt['form.errorField']}">
+                            <f:validator validatorId="EmailValidator"/>
+                            <f:facet name="prepend">
+                                <h:outputText value="@"/>
+                            </f:facet>
+                        </b:inputText>
+                        <b:messages for="@previous" />
+
+                    </b:column>
+                </b:row>
+
+                <b:row>
+                    <b:column span="5" offset="1">
+
+                        <!-- Password -->
+                        <b:inputSecret id="pwd" fieldId="pwd" name="pwd"
+                                       value="#{registrationBean.user.password}"
+                                       label="#{txt['form.password']}"
+                                       required="true"
+                                       requiredMessage="#{txt['form.errorField']}">
+                        </b:inputSecret>
+                        <b:messages for="pwd" />
+
+                    </b:column>
+                    <b:column span="5">
+
+                        <!-- Confirm password -->
+                        <b:inputSecret id="pwdConfirm" fieldId="pwdConfirm" name="pwdConfirm"
+                                       value="#{registrationBean.user.password}"
+                                       label="#{txt['form.passwordConfirm']}"
+                                       required="true"
+                                       requiredMessage="#{txt['form.errorField']}">
+                            <f:validator validatorId="PasswordValidator"/>
+                        </b:inputSecret>
+                        <b:messages for="pwdConfirm" />
+
+                    </b:column>
+                </b:row>
+
+                <b:row style="margin: 40px 0 75px;">
+
+                        <!--Validation button -->
+                        <b:commandButton update="@form" value="#{txt['button.form']}"  iconAwesome="fa-thumbs-up" span="2" offset="5"
+                                         action="#{registrationBean.addUserInDb}" look="success" size="lg"/>
+
+                </b:row>
+
+            </b:form>
+
+            <!-- Return link -->
+
+            <b:row style="margin: 40px auto 100px">
+                <b:column span="3" offset="9">
+                    <b:navLink outcome="index" value="#{txt['linkReturnHome']}"/>
+                </b:column>
+            </b:row>
+
+        </ui:define>
+    </ui:composition>
+</ui:fragment>

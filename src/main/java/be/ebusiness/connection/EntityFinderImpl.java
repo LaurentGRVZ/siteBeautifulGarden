@@ -1,7 +1,8 @@
 package be.ebusiness.connection;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.Serializable;
 import java.util.*;
@@ -27,7 +28,7 @@ public class EntityFinderImpl<T> implements EntityFinder<T>, Serializable {
     }
 
     // Log4j
-    private static Logger log = LoggerFactory.getLogger(EntityFinderImpl.class);
+    private static Logger log = LogManager.getLogger(EntityFinderImpl.class);
 
     @Override
     public T findOne(T t, int id) {
@@ -40,10 +41,10 @@ public class EntityFinderImpl<T> implements EntityFinder<T>, Serializable {
 
             em.clear();
 
-            log.debug("Bean " + t + " find from database: Ok");
+           log.debug("Bean " + t + " find from database: Ok");
         } finally {
             em.close();
-            log.debug("Close em : Ok");
+           log.debug("Close em : Ok");
         }
 
         return t;
@@ -52,7 +53,7 @@ public class EntityFinderImpl<T> implements EntityFinder<T>, Serializable {
     @Override
     public <K, V> List<T> findByNamedQuery(String namedQuery, T t, Map<K, V> param) {
 
-        List<T> listT = new ArrayList<T>();
+        List<T> listT;
         Class<? extends Object> ec = t.getClass();
 
         EntityManager em = EMF.getEM();
@@ -78,7 +79,7 @@ public class EntityFinderImpl<T> implements EntityFinder<T>, Serializable {
     @Override
     public <K, V> List<T> findByCustomQuery(String customQuery, T t, Map<K, V> param) {
 
-        List<T> listT = new ArrayList<T>();
+        List<T> listT;
         Class<? extends Object> ec = t.getClass();
 
         EntityManager em = EMF.getEM();
@@ -112,7 +113,7 @@ public class EntityFinderImpl<T> implements EntityFinder<T>, Serializable {
         while (itr.hasNext()) {
             Map.Entry<K, V> entry = itr.next();
             query.setParameter((String) entry.getKey(), entry.getValue());
-            log.debug("entry.getValue: " + entry.getValue());
+           // log.debug("entry.getValue: " + entry.getValue());
         }
     }
 

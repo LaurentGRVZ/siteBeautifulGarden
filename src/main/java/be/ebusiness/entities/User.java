@@ -1,9 +1,9 @@
 package be.ebusiness.entities;
 
-
 import be.ebusiness.enumerations.UserGenderEnum;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -17,7 +17,13 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "users", schema = "ebusiness")
+@Table(name="users")
+@NamedQueries({
+        @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+        @NamedQuery(name = "User.findByMail", query = "SELECT u FROM User u WHERE u.mail = :userMail"),
+        @NamedQuery(name = "User.findByVatNumber", query = "SELECT u FROM User u WHERE u.vatNumber = :vatNumber"),
+        @NamedQuery(name = "User.findByCompanyNbr", query = "SELECT u FROM User u WHERE u.companyNumber = :companyNbr")
+})
 public class User implements Serializable {
 
     //Properties
@@ -30,12 +36,12 @@ public class User implements Serializable {
 
     @Column(name = "lastname")
     @NotNull
-    @Size(min = 2, max = 100)
+    @Size(min = 2, max = 50)
     private String lastname;
 
     @Column(name = "firstname")
     @NotNull
-    @Size(min = 2, max = 100)
+    @Size(min = 2, max = 50)
     private String firstname;
 
     @Column(name = "gender")
@@ -43,46 +49,42 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     private UserGenderEnum gender;
 
-    @Column(name = "birth_date")
-    @NotNull
-    private LocalDateTime birthDate;
-
     @Column(name = "phone")
     @NotNull
     @Size(max = 25)
     private String phone;
 
     @Column(name = "mail", unique = true)
+    @Email
     @NotNull
     @Size(max = 150)
     private String mail;
 
     @Column(name = "email_verified_at")
-    @NotNull
     private LocalDateTime emailVerifiedAt;
 
-    @Column(name = "password")
+    @Column(name="password")
     @NotNull
     @Size(max = 255)
     private String password;
 
-    @Column(name = "two_factor_secret")
+    @Column(name="two_factor_secret")
     @Size(max = 255)
     private String twoFactorSecret;
 
-    @Column(name = "two_factor_recovery_codes")
+    @Column(name="two_factor_recovery_codes")
     @Size(max = 255)
     private String twoFactorRecoveryCodes;
 
-    @Column(name = "remember_token")
+    @Column(name="remember_token")
     @Size(max = 255)
     private String rememberToken;
 
-    @Column(name = "company_number", unique = true)
+    @Column(name="company_number", unique = true)
     @Size(max = 30)
     private String companyNumber;
 
-    @Column(name = "vat_number", unique = true)
+    @Column(name="vat_number", unique = true)
     @Size(max = 30)
     private String vatNumber;
 
@@ -90,28 +92,31 @@ public class User implements Serializable {
     @NotNull
     private boolean active;
 
-    @Column(name="created_at")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name="updated_at")
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     //uni-directional many-to-one association to UserType
     @ManyToOne
     @JoinColumn(name="id_user_type")
-    private User user;
+    private TypeUser typeUser;
 
     //uni-directional many-to-one association to Role
     @ManyToOne
     @JoinColumn(name="id_role")
+    private Role role;
+
+    //uni-directional many-to-one association to Role
+    @ManyToOne
+    @JoinColumn(name="id_address")
     private Address address;
 
 
     //Getters and setters
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
     public void setId(int id) {
         this.id = id;
@@ -136,10 +141,6 @@ public class User implements Serializable {
     public UserGenderEnum getGender() { return gender; }
 
     public void setGender(UserGenderEnum gender) { this.gender = gender; }
-
-    public LocalDateTime getBirthDate() { return birthDate; }
-
-    public void setBirthDate(LocalDateTime birthDate) { this.birthDate = birthDate; }
 
     public String getPhone() {
         return phone;
@@ -223,9 +224,13 @@ public class User implements Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public User getUser() { return user; }
+    public TypeUser getTypeUser() { return typeUser; }
 
-    public void setUser(User user) { this.user = user; }
+    public void setTypeUser(TypeUser typeUser) { this.typeUser = typeUser; }
+
+    public Role getRole() { return role; }
+
+    public void setRole(Role role) { this.role = role; }
 
     public Address getAddress() { return address; }
 
@@ -244,7 +249,6 @@ public class User implements Serializable {
                 Objects.equals(lastname, user.lastname) &&
                 Objects.equals(firstname, user.firstname) &&
                 Objects.equals(gender, user.gender) &&
-                Objects.equals(birthDate, user.birthDate) &&
                 Objects.equals(phone, user.phone) &&
                 Objects.equals(mail, user.mail) &&
                 Objects.equals(emailVerifiedAt, user.emailVerifiedAt) &&
@@ -260,7 +264,7 @@ public class User implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, lastname, firstname, gender, birthDate, phone, mail, emailVerifiedAt, password, twoFactorSecret, twoFactorRecoveryCodes, rememberToken, companyNumber, vatNumber, active, createdAt, updatedAt);
+        return Objects.hash(id, lastname, firstname, gender, phone, mail, emailVerifiedAt, password, twoFactorSecret, twoFactorRecoveryCodes, rememberToken, companyNumber, vatNumber, active, createdAt, updatedAt);
     }
 
 }

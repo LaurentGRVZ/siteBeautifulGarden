@@ -77,6 +77,11 @@ public class Item implements Serializable {
     @JoinColumn(name="id_brand")
     private Brand brand;
 
+    //uni-directional many-to-one association to VatRate
+    @ManyToOne
+    @JoinColumn(name="id_vat_rates")
+    private VatRates vatRates;
+
 
     //Getters and setters
 
@@ -159,6 +164,10 @@ public class Item implements Serializable {
     public Brand getBrand() { return brand; }
 
     public void setBrand(Brand brand) { this.brand = brand; }
+
+    public VatRates getVatRates() { return vatRates; }
+
+    public void setVatRates(VatRates vatRates) { this.vatRates = vatRates; }
 
 
     //Methods

@@ -52,11 +52,6 @@ public class ItemElement implements Serializable {
     @JoinColumn(name="id_item")
     private Item item;
 
-    //uni-directional many-to-one association to VatRate
-    @ManyToOne
-    @JoinColumn(name="id_vat_rates")
-    private VatRates vatRates;
-
 
     //Getters and setters
 
@@ -103,10 +98,6 @@ public class ItemElement implements Serializable {
     public Item getItem() { return item;}
 
     public void setItem(Item item) { this.item = item; }
-
-    public VatRates getVatRates() { return vatRates; }
-
-    public void setVatRates(VatRates vatRates) { this.vatRates = vatRates; }
 
 
     //Methods

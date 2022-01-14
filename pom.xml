@@ -102,7 +102,13 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.22</version>
+            <version>8.0.27</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mindrot/jbcrypt -->
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.4</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
@@ -110,18 +116,15 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-web -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-web</artifactId>
-            <version>1.8.0</version>
-        </dependency>
+
         <dependency>
             <groupId>net.bootsfaces</groupId>
             <artifactId>bootsfaces</artifactId>
             <version>1.5.0</version>
             <scope>compile</scope>
         </dependency>
+
+
 
 
     </dependencies>

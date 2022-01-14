@@ -1,11 +1,77 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
-</html>
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:f="http://xmlns.jcp.org/jsf/core"
+             xmlns:b="http://bootsfaces.net/ui">
+
+    <ui:composition template="/WEB-INF/templates/template.xhtml">
+        <ui:define name="title">#{txt['swimmingPool']}</ui:define>
+        <ui:define name="content">
+
+            <h1 style="text-decoration: underline">#{txt['swimmingPool']}</h1>
+
+            <!-- Sort item -->
+
+            <b:row style="margin-top: 40px;">
+                <b:column span="2" offset="10">
+                    <h:form>
+                        <h:selectOneMenu value="#{swimmingPoolBean.selectTypeSort}">
+                            <f:selectItem itemValue="defaultSort" itemLabel="#{txt['sort.default']}"/>
+                            <f:selectItem itemValue="price" itemLabel="#{txt['sort.price']}"/>
+                            <f:selectItem itemValue="brand" itemLabel="#{txt['sort.brand']}"/>
+
+                            <f:ajax event="change" listener="#{swimmingPoolBean.sortItem(swimmingPoolBean.selectTypeSort, 5)}" render="output"/>
+
+                        </h:selectOneMenu>
+                    </h:form>
+                </b:column>
+            </b:row>
+
+            <!-- Display item -->
+
+            <b:row style="margin-top: 60px;" id="output">
+                <b:column span="10" offset="1">
+
+                    <ui:repeat value="#{swimmingPoolBean.itemCategoryList}" var="item">
+                        <b:column span="12" style="border: 2px solid red; border-radius:10px; margin:20px 0 20px 0;">
+
+                            <b:column span="2">
+                                <h:graphicImage value="#{item.item.urlPicture}" width="100%"/>
+                            </b:column>
+
+                            <b:column span="6">
+                                <h3 style="text-decoration: underline">#{item.item.brand.label}</h3>
+                                <h:outputText value="#{item.item.designation}"/>
+                            </b:column>
+
+                            <b:column span="2" style="margin-top:40px;">
+                                <h:outputText value="#{item.item.price * item.item.vatRates.rate}" style="font-weight:bold; color:red; font-size:x-large;">
+                                    <f:convertNumber currencySymbol="€" type="currency" minFractionDigits="0"/>
+                                </h:outputText><br/>
+                            </b:column>
+
+                            <b:column span="2" style="margin-top:40px; margin-bottom: 10px;">
+                                <b:button href="" look="success" iconAwesome="fa-cart-arrow-down" size="lg" style="border-radius:35px;"
+                                          tooltip="#{txt['button.addBasket']}" tooltipPosition="top" tooltipDelay="5"/>
+                                <b:button href="" look="primary" iconAwesome="fa-search-plus" size="lg" style="border-radius:35px; margin-left: 20px;"
+                                          tooltip="#{txt['button.detailedView']}" tooltipPosition="top" tooltipDelay="5"/>
+                            </b:column>
+
+                        </b:column>
+                    </ui:repeat>
+
+                </b:column>
+            </b:row>
+
+            <!-- Return link -->
+
+            <b:row style="margin: 50px auto 100px">
+                <b:column span="3" offset="9">
+                    <b:navLink outcome="index" value="#{txt['linkReturnHome']}"/>
+                </b:column>
+            </b:row>
+
+        </ui:define>
+    </ui:composition>
+
+</ui:fragment>

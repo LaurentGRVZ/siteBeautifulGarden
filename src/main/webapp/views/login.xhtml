@@ -9,22 +9,26 @@
 
             <h1 style="text-decoration: underline">#{txt['login']}</h1>
 
-            <b:form id="loginForm">
+            <b:row>
+                <b:column span="10" offset="1">
+                <b:form id="loginForm">
 
-                <b:inputText id="login" fieldId="username" name="username"
-                             value="#{loginBean.login}"
-                             label="Username"
-                             required="true"/>
-                <b:message for="@previous" />
+                    <b:inputText id="login" fieldId="username" name="username"
+                                 value="#{loginBean.login}"
+                                 label="Username"
+                                 required="true"/>
+                    <b:message for="@previous" />
 
-                <b:inputSecret id="pwd" fieldId="password" name="password"
-                               value="#{loginBean.pwd}"
-                               label="Password"
-                               required="true"/>
-                <b:message for="passwordDiv" />
+                    <b:inputSecret id="pwd" fieldId="password" name="password"
+                                   value="#{loginBean.pwd}"
+                                   label="Password"
+                                   required="true"/>
+                    <b:message for="passwordDiv" />
 
-                <b:commandButton update="@form" value="Login" onclick=""/>
-            </b:form>
+                    <b:commandButton update="@form" value="Login" onclick=""/>
+                </b:form>
+                </b:column>
+            </b:row>
 
 
         </ui:define>

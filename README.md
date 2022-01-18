@@ -1,6 +1,6 @@
 # Beautiful Garden :herb: :deciduous_tree: :sunflower:
 
-<p align="center">
+<p align="center" width="100%">
 <img src="https://forthebadge.com/images/badges/built-with-love.svg">
 <img src="https://forthebadge.com/images/badges/powered-by-electricity.svg">
 <img src="https://forthebadge.com/images/badges/made-with-java.svg">

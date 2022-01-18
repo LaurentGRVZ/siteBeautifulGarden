@@ -4,6 +4,12 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
+/**
+ * @author Laurent GRAVEZ
+ *
+ *
+ */
+
 @Named
 @SessionScoped
 public class ChangeLocaleTool implements Serializable {

@@ -31,6 +31,7 @@ public class UserService {
         }
         return null;
     }
+
     public static User findUserByVatNumber(String vatNumber){
 
         List<User> userList;

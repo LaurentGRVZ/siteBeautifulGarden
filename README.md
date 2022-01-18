@@ -1,8 +1,10 @@
 # Beautiful Garden :herb: :deciduous_tree: :sunflower:
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com)
+<p align="center">
+<img src="https://forthebadge.com/images/badges/built-with-love.svg">
+<img src="https://forthebadge.com/images/badges/powered-by-electricity.svg">
+<img src="https://forthebadge.com/images/badges/made-with-java.svg">
+</p>
 
 ## Author :man_technologist:
 
@@ -29,7 +31,7 @@ This site was designed to showcase my skills in computer development.
 
 **Language :** Java 8
 
-**Database :** MySQL
+**Database :** MySQL 5
 
 **Project management :** Maven 
 
@@ -43,8 +45,3 @@ This site was designed to showcase my skills in computer development.
 
 **Logging tools :** Log4j 2.17 (**Warning :** Previous versions are deprecated due to vulnerability) 
 
-## Links for Emoji and badge 	:arrow_right:
-
-https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#computer
-
-https://forthebadge.com/

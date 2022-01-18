@@ -9,6 +9,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 import static be.ebusiness.services.CityService.findAllCities;
 import static be.ebusiness.services.CityService.findOneCity;
 import static be.ebusiness.services.RoleService.findAllRoles;
+import static be.ebusiness.tools.SessionTool.getSession;
 import static be.ebusiness.tools.TransactionTool.saveUser;
 
 /**
@@ -60,30 +62,38 @@ public class RegistrationBean implements Serializable {
 
         boolean userCreated;
 
+        //Add user role
         if(displayFieldCustomerPro.equals("1")){
             user.setRole(roleList.get(1));
         }else{
             user.setRole(roleList.get(2));
         }
 
+        //Add user info
         user.setGender(managementGender());
         user.setActive(true);
         user.setCreatedAt(LocalDateTime.now());
         hashPwd();
 
+        //Add address
         address.setCity(findOneCity(Integer.parseInt(idCity)));
         address.setCreatedAt(LocalDateTime.now());
-
         user.setAddress(address);
 
+        //Save user
         userCreated = saveUser(user, address);
 
-        //Resets the form
+        //Create session
+        if(userCreated){
+            HttpSession session = getSession();
+            session.setAttribute("connectedUser", user);
+        }
+
+        //Reset the form
         user = new User();
         address = new Address();
         roleList = findAllRoles();
         cityList= findAllCities();
-
 
         return userCreated ? "success" : "failed";
     }

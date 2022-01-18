@@ -2,8 +2,12 @@ package be.ebusiness.beans;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.servlet.http.HttpSession;
 
 import java.io.Serializable;
+
+import static be.ebusiness.tools.SessionTool.getSession;
+
 
 /**
  * @author Gravez Laurent
@@ -15,38 +19,29 @@ import java.io.Serializable;
 public class LoginBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     private String login;
     private String pwd;
 
-   /* public void checkUser(){
-        if(BCrypt.checkpw(candidate, hashed))
-        {
 
-        }else{
-            
-        }
-    }*/
+    //Methods
+
+    public String validateUser(){ return "success"; }
+
+    public String logout(){
+        HttpSession session = getSession();
+        session.invalidate();
+        return "sessionOut";
+    }
+
 
     //Getters and setters
 
-    public String getLogin() {
-        return login;
-    }
+    public String getLogin() { return login; }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+    public void setLogin(String login) { this.login = login; }
 
-    public String getPwd() {
-        return pwd;
-    }
+    public String getPwd() { return pwd; }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
-    }
+    public void setPwd(String pwd) { this.pwd = pwd; }
 
-    /*public String returnAction() {
-        return getLogin().equals( "James" ) ? "success" : "failed";
-    }*/
 }

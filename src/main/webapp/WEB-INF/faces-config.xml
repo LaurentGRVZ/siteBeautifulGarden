@@ -6,6 +6,8 @@
 
     <application>
 
+        <!-- Management languages -->
+
         <locale-config>
             <default-locale>fr</default-locale>
             <supported-locale>nl</supported-locale>
@@ -21,11 +23,6 @@
 
     <navigation-rule>
         <from-view-id>*</from-view-id>
-        <navigation-case>
-            <from-outcome>brand</from-outcome>
-            <to-view-id>/views/brand.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
 
         <!-- Index -->
 
@@ -87,11 +84,6 @@
         <!-- Management user -->
 
         <navigation-case>
-            <from-outcome>connection</from-outcome>
-            <to-view-id>/views/login.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-        <navigation-case>
             <from-outcome>registration</from-outcome>
             <to-view-id>/views/registration.xhtml</to-view-id>
             <redirect/>
@@ -103,7 +95,7 @@
         <from-view-id>/views/registration.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>success</from-outcome>
-            <to-view-id>/views/login.xhtml</to-view-id>
+            <to-view-id>/views/priv/userProfile.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
         <navigation-case>
@@ -112,6 +104,24 @@
         </navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>/views/*</from-view-id>
+        <navigation-case>
+            <from-action>#{loginBean.validateUser}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/views/priv/userProfile.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>/views/*</from-view-id>
+        <navigation-case>
+            <from-action>#{loginBean.logout}</from-action>
+            <from-outcome>sessionOut</from-outcome>
+            <to-view-id>/views/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
 
 </faces-config>

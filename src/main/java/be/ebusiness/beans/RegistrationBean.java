@@ -32,8 +32,8 @@ public class RegistrationBean implements Serializable {
     private static final long serialVersionUID = 1L;
     private String displayFieldCustomerPro;
     private String title;
-    private User user = new User();
-    private UserGenderEnum userGenderEnum;
+    User user = new User();
+    UserGenderEnum userGenderEnum;
     private List<Role> roleList = findAllRoles();
     private List<City> cityList= findAllCities();
     private String idCity;

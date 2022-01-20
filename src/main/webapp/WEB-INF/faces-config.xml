@@ -89,8 +89,21 @@
             <redirect/>
         </navigation-case>
 
+        <navigation-case>
+            <from-outcome>userProfile</from-outcome>
+            <to-view-id>/views/priv/userProfile.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>order</from-outcome>
+            <to-view-id>/views/priv/order.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
     </navigation-rule>
 
+    <!-- Registration -->
     <navigation-rule>
         <from-view-id>/views/registration.xhtml</from-view-id>
         <navigation-case>
@@ -104,15 +117,19 @@
         </navigation-case>
     </navigation-rule>
 
+    <!-- Connection -->
+
     <navigation-rule>
         <from-view-id>/views/*</from-view-id>
         <navigation-case>
             <from-action>#{loginBean.validateUser}</from-action>
-            <from-outcome>success</from-outcome>
+            <from-outcome>connected</from-outcome>
             <to-view-id>/views/priv/userProfile.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
+
+    <!-- Session out -->
 
     <navigation-rule>
         <from-view-id>/views/*</from-view-id>
@@ -123,5 +140,12 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
+    
+
+    <managed-bean>
+        <managed-bean-name>currentDate</managed-bean-name>
+        <managed-bean-class>java.util.Date</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 
 </faces-config>

@@ -25,7 +25,7 @@ public class LoginBean implements Serializable {
 
     //Methods
 
-    public String validateUser(){ return "success"; }
+    public String validateUser(){ return "connected"; }
 
     public String logout(){
         HttpSession session = getSession();

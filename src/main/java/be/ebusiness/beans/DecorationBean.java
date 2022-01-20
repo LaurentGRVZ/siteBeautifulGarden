@@ -30,7 +30,6 @@ public class DecorationBean implements Serializable {
     public void sortItem(String selectTypeSort, int id){ itemCategoryList = sortTool.sortItem(selectTypeSort, id); }
 
 
-
     //Getters and setters
 
     public String getSelectTypeSort() { return selectTypeSort; }

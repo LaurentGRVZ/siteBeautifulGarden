@@ -8,9 +8,67 @@
     <ui:define name="title">#{txt['userProfil']}</ui:define>
         <ui:define name="content">
 
-            <f:view>
-                <h:outputLabel value="Hello, world"/>
-            </f:view>
+            <h1 style="text-decoration: underline; margin-bottom: 25px;">#{txt['myAccount.title']}</h1>
+
+
+            <ui:include src="menu.xhtml"/>
+
+            <!-- Profile information -->
+
+            <b:row style="margin-top: 25px">
+                <b:column span="2" offset="1">
+                    <h:graphicImage value="#{userProfileBean.imgAvatar}" width="100%" style="border-radius: 50%"/>
+                </b:column>
+                <b:column span="6">
+                    <h2>#{userProfileBean.user.lastname} #{userProfileBean.user.firstname}</h2>
+                    <p>#{userProfileBean.user.mail}</p>
+                    <p><b:label value="#{userProfileBean.user.role.label}" severity="primary"/></p>
+                </b:column>
+                <b:column span="2" style="padding-top: 10px;">
+                    <h:outputText value="#{currentDate}">
+                            <f:convertDateTime pattern="dd MMMMM yyyy" type="date"/>
+                    </h:outputText>
+                </b:column>
+            </b:row>
+
+            <b:row style="margin-top: 25px">
+                <b:column span="10" offset="1">
+
+                    <h4 style="text-decoration: underline">#{txt['myAccount.address']}</h4>
+
+                    <p>#{userProfileBean.user.address.street}, #{userProfileBean.user.address.number} #{userProfileBean.user.address.postbox}</p>
+                    <p>#{userProfileBean.user.address.city.zipCode} - #{userProfileBean.user.address.city.label}</p>
+                    <p>#{userProfileBean.user.address.city.country.label}</p>
+                </b:column>
+            </b:row>
+
+            <b:row style="margin-top: 25px">
+                <b:column span="10" offset="1">
+
+                    <h4 style="text-decoration: underline">#{txt['myAccount.phone']}</h4>
+
+                    <p>#{userProfileBean.user.phone}</p>
+
+                </b:column>
+            </b:row>
+
+            <b:row style="margin-top: 25px">
+                <b:column span="10" offset="1">
+
+                    <p>#{userProfileBean.user.companyNumber}</p>
+                    <p>#{userProfileBean.user.vatNumber}</p>
+
+                </b:column>
+            </b:row>
+
+            <b:row style="margin-top: 25px; margin-bottom: 25px;">
+                <b:column span="10" offset="1">
+                    <hr/>
+                    <p>#{txt['myAccount.msgProblem']}</p>
+
+                </b:column>
+            </b:row>
+
         </ui:define>
     </ui:composition>
 </ui:fragment>

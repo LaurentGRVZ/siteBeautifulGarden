@@ -23,7 +23,7 @@
             <b:navLink value="#{txt['navbar.link3']}" style="color:white;" outcome="" iconAwesome="fa-shopping-cart"/>
             <b:navLink value="#{txt['navbar.inscription']}" style="color:white;" outcome="registration" iconAwesome="fa-user" rendered="#{sessionScope['connectedUser'] eq null}"/>
             <b:navLink value="#{txt['navbar.connection']}" style="color:white;" iconAwesome="fa-key" onclick="$('.formValidationModalClass').modal('show')" rendered="#{sessionScope['connectedUser'] eq null}"/>
-
+            <b:navLink value="#{txt['navbar.myAccount']}" style="color:white;" outcome="" iconAwesome="fa-user" rendered="#{sessionScope['connectedUser'] ne null}"/>
 
             <!-- Modal connection -->
 

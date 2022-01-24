@@ -30,10 +30,12 @@ public class Packaging implements Serializable {
 
     @Column(name = "status")
     @NotNull
+    @Enumerated(EnumType.STRING)
     private PackagingStatusEnum packagingStatusEnum;
 
     @Column(name = "packaging_type")
     @NotNull
+    @Enumerated(EnumType.STRING)
     private PackagingTypeEnum packagingTypeEnum;
 
     @Column(name = "weight")

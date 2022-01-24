@@ -101,6 +101,7 @@
             <redirect/>
         </navigation-case>
 
+
     </navigation-rule>
 
     <!-- Registration -->
@@ -140,7 +141,63 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
-    
+
+    <!-- Others -->
+
+    <navigation-rule>
+        <from-view-id>/views/catalog/decoration.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>detailed</from-outcome>
+            <to-view-id>/views/detailedView.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/views/catalog/fountain.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>detailed</from-outcome>
+            <to-view-id>/views/detailedView.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/views/catalog/gardenFurniture.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>detailed</from-outcome>
+            <to-view-id>/views/detailedView.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/views/catalog/tool.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>detailed</from-outcome>
+            <to-view-id>/views/detailedView.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/views/catalog/lawnmower.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>detailed</from-outcome>
+            <to-view-id>/views/detailedView.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/views/catalog/swimmingPool.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>detailed</from-outcome>
+            <to-view-id>/views/detailedView.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
 
     <managed-bean>
         <managed-bean-name>currentDate</managed-bean-name>

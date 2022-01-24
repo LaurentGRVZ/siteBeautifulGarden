@@ -26,22 +26,4 @@ public class ItemCategoryService {
         return itemList;
     }
 
-    public static List<ItemCategory> findAllItemByIdCategoryAndSortByPrice(int id){
-        List<ItemCategory> itemList;
-        EntityFinder<ItemCategory> ef = new EntityFinderImpl<>();
-        Map<String, Object> map = new HashMap<>();
-        map.put("id", id);
-        itemList = ef.findByNamedQuery("ItemCategory.findAllItemByIdCategoryAndSortByPrice", new ItemCategory(), map);
-        return itemList;
-    }
-
-    public static List<ItemCategory> findAllItemByIdCategoryAndSortByBrand(int id){
-        List<ItemCategory> itemList;
-        EntityFinder<ItemCategory> ef = new EntityFinderImpl<>();
-        Map<String, Object> map = new HashMap<>();
-        map.put("id", id);
-        itemList = ef.findByNamedQuery("ItemCategory.findAllItemByIdCategoryAndSortByBrand", new ItemCategory(), map);
-        return itemList;
-    }
-
 }

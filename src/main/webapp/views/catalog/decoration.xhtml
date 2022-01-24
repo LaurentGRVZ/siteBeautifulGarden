@@ -10,56 +10,45 @@
 
             <h1 style="text-decoration: underline">#{txt['decoration']}</h1>
 
-            <!-- Sort item -->
-
-            <b:row style="margin-top: 40px;">
-                <b:column span="2" offset="10">
-                    <h:form>
-                        <h:selectOneMenu value="#{decorationBean.selectTypeSort}">
-                            <f:selectItem itemValue="defaultSort" itemLabel="#{txt['sort.default']}"/>
-                            <f:selectItem itemValue="price" itemLabel="#{txt['sort.price']}"/>
-                            <f:selectItem itemValue="brand" itemLabel="#{txt['sort.brand']}"/>
-
-                            <f:ajax event="change" listener="#{decorationBean.sortItem(decorationBean.selectTypeSort, 1)}" render="output"/>
-
-                        </h:selectOneMenu>
-                    </h:form>
-                </b:column>
-            </b:row>
-
             <!-- Display item -->
 
-            <b:row style="margin-top: 60px;" id="output">
-                <b:column span="10" offset="1">
+            <b:row style="margin-top: 60px;">
+                <b:column>
+                    <h:form>
+                        <b:dataTable value="#{decorationBean.itemCategoryList}" var="item" offset="1" span="10" responsive="true" style="width:100%">
 
-                    <ui:repeat value="#{decorationBean.itemCategoryList}" var="item">
-                        <b:column span="12" style="border: 2px solid red; border-radius:10px; margin:20px 0 20px 0;">
-
-                            <b:column span="2">
+                            <b:dataTableColumn label="#{txt['tab.image']}" width="15%"
+                                               style="display: table-cell; vertical-align:middle; text-align:center;">
                                 <h:graphicImage value="#{item.item.urlPicture}" width="100%"/>
-                            </b:column>
+                            </b:dataTableColumn>
+                            <b:dataTableColumn value="#{item.item.brand.label}" width="10%" label="#{txt['tab.brand']}"
+                                               style="display: table-cell; vertical-align:middle; text-align:center;"/>
+                            <b:dataTableColumn value="#{item.item.designation}" width="40%" label="#{txt['tab.designation']}"
+                                               style="display: table-cell; vertical-align:middle; text-align:center;"/>
+                            <b:dataTableColumn width="15%" label="#{txt['tab.price']}"
+                                               style="display: table-cell; vertical-align:middle; text-align:center;">
+                                <h:outputText value="#{item.item.price * item.item.vatRates.rate}" style="font-weight:bold; color:red; font-size:x-large;">
+                                <f:convertNumber currencySymbol="€" type="currency" pattern="###.00€"/>
+                                </h:outputText>
+                            </b:dataTableColumn>
+                            <b:dataTableColumn width="20%" label="#{txt['tab.button']}"
+                                               style="display: table-cell; vertical-align:middle; text-align:center;">
 
-                            <b:column span="6">
-                                <h3 style="text-decoration: underline">#{item.item.brand.label}</h3>
-                                <h:outputText value="#{item.item.designation}"/>
-                            </b:column>
+                                <b:form>
 
-                            <b:column span="2" style="margin-top:40px;">
-                            <h:outputText value="#{item.item.price * item.item.vatRates.rate}" style="font-weight:bold; color:red; font-size:x-large;">
-                                <f:convertNumber currencySymbol="€" type="currency" minFractionDigits="0"/>
-                            </h:outputText><br/>
-                            </b:column>
+                                    <b:commandButton look="success" iconAwesome="fa-cart-arrow-down" size="lg" style="border-radius:50%;"
+                                                     tooltip="#{txt['button.addBasket']}" tooltipPosition="top" tooltipDelay="5"
+                                                     action="#{detailedViewBean.displayDetailedView(item.item.id)}" ajax="true"/>
+                                    <b:commandButton look="primary" iconAwesome="fa-search-plus" size="lg" style="border-radius:50%; margin-left: 20px;"
+                                                     tooltip="#{txt['button.detailedView']}" tooltipPosition="top" tooltipDelay="5"
+                                                     action="#{detailedViewBean.displayDetailedView(item.item.id)}" ajax="true"/>
 
-                            <b:column span="2" style="margin-top:40px; margin-bottom: 10px;">
-                                <b:button href="" look="success" iconAwesome="fa-cart-arrow-down" size="lg" style="border-radius:35px;"
-                                          tooltip="#{txt['button.addBasket']}" tooltipPosition="top" tooltipDelay="5"/>
-                                <b:button href="" look="primary" iconAwesome="fa-search-plus" size="lg" style="border-radius:35px; margin-left: 20px;"
-                                          tooltip="#{txt['button.detailedView']}" tooltipPosition="top" tooltipDelay="5"/>
-                            </b:column>
+                                </b:form>
 
-                        </b:column>
-                    </ui:repeat>
+                            </b:dataTableColumn>
 
+                        </b:dataTable>
+                    </h:form>
                 </b:column>
             </b:row>
 

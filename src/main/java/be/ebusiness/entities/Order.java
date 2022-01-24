@@ -48,6 +48,7 @@ public class Order implements Serializable {
 
     @Basic
     @Column(name = "shipping_options", nullable = false)
+    @Enumerated(EnumType.STRING)
     private OrderShippingOptionEnum orderShippingOptionEnum;
 
     @Column(name="created_at")

@@ -108,7 +108,7 @@ public class User implements Serializable {
     @JoinColumn(name="id_role")
     private Role role;
 
-    //uni-directional many-to-one association to Role
+    //uni-directional many-to-one association to Address
     @ManyToOne
     @JoinColumn(name="id_address")
     private Address address;

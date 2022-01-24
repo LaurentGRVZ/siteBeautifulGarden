@@ -33,6 +33,7 @@ public class ReturnItem implements Serializable {
 
     @Column(name="reason")
     @NotNull
+    @Enumerated(EnumType.STRING)
     private ReturnItemReasonEnum reason;
 
     @Column(name="created_at")

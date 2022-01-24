@@ -16,6 +16,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "items_storage_locations", schema = "ebusiness")
+@NamedQuery(name = "ItemStorageLocation.findQuantityItem", query = "SELECT i FROM ItemStorageLocation i WHERE i.item.id = :id")
+
 public class ItemStorageLocation implements Serializable {
 
     //Properties
@@ -30,11 +32,12 @@ public class ItemStorageLocation implements Serializable {
     @NotNull
     private int quantity;
 
-    @Column(name = "limit")
+    @Column(name = "critical_stock")
     @NotNull
-    private int limit;
+    private int criticalStock;
 
-    @Column(name = "alert")
+    @Column(name= "alert")
+    @Enumerated(EnumType.STRING)
     @NotNull
     private ItemStorageLocationAlertEnum itemStorageLocationAlertEnum;
 
@@ -73,13 +76,9 @@ public class ItemStorageLocation implements Serializable {
         this.quantity = quantity;
     }
 
-    public int getLimit() {
-        return limit;
-    }
+    public int getCriticalStock() { return criticalStock; }
 
-    public void setLimit(int limit) {
-        this.limit = limit;
-    }
+    public void setCriticalStock(int criticalStock) { this.criticalStock = criticalStock; }
 
     public ItemStorageLocationAlertEnum getItemStorageLocationAlertEnum() { return itemStorageLocationAlertEnum; }
 
@@ -111,7 +110,6 @@ public class ItemStorageLocation implements Serializable {
         ItemStorageLocation that = (ItemStorageLocation) o;
         return id == that.id &&
                 quantity == that.quantity &&
-                limit == that.limit &&
                 Objects.equals(itemStorageLocationAlertEnum, that.itemStorageLocationAlertEnum) &&
                 Objects.equals(createdAt, that.createdAt) &&
                 Objects.equals(updatedAt, that.updatedAt);
@@ -119,7 +117,7 @@ public class ItemStorageLocation implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, quantity, limit, itemStorageLocationAlertEnum, createdAt, updatedAt);
+        return Objects.hash(id, quantity, itemStorageLocationAlertEnum, createdAt, updatedAt);
     }
 
 }

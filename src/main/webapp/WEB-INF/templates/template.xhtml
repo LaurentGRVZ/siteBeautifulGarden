@@ -12,7 +12,6 @@
         <h:head>
 
             <title><ui:insert name="title">#{txt['template']}</ui:insert></title>
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
             <h:outputStylesheet library="css" name="style.css"/>
 
         </h:head>
@@ -25,7 +24,7 @@
                 <ui:insert name="content"/>
             </b:container>
 
-            <b:container style="width:100%;">
+            <b:container style="width:100%;" fluid="true">
                 <ui:include src="footer.xhtml"/>
             </b:container>
         </h:body>

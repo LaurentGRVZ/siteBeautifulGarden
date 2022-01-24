@@ -54,7 +54,7 @@ public class UserService {
         EntityFinder<User> ef = new EntityFinderImpl<>();
         userList = ef.findByNamedQuery("User.findByCompanyNbr", new User(), map);
 
-        if(!userList.isEmpty() && userList.get(0).getVatNumber().equals(companyNbr)){
+        if(!userList.isEmpty() && userList.get(0).getCompanyNumber().equals(companyNbr)){
             return userList.get(0);
         }
         return null;

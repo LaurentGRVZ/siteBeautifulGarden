@@ -30,6 +30,7 @@ public class SupplierOrder implements Serializable {
 
     @Column(name = "status")
     @NotNull
+    @Enumerated(EnumType.STRING)
     private SupplierOrderStatusEnum supplierOrderStatusEnum;
 
     @Column(name="created_at")

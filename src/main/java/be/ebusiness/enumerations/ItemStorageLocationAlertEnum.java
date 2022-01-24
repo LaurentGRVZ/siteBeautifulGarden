@@ -8,7 +8,7 @@ package be.ebusiness.enumerations;
 
 public enum ItemStorageLocationAlertEnum {
 
-    NONE("NONE"),
+    OK("OK"),
     ALERT("ALERT");
 
     private final String label;

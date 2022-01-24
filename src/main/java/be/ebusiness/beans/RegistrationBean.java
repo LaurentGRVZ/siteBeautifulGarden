@@ -39,6 +39,7 @@ public class RegistrationBean implements Serializable {
     private String idCity;
     private Address address = new Address();
 
+
     //Methods
 
     public UserGenderEnum managementGender(){

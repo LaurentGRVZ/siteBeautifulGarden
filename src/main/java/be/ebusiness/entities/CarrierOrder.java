@@ -28,6 +28,7 @@ public class CarrierOrder implements Serializable {
 
     @Column(name = "status")
     @NotNull
+    @Enumerated(EnumType.STRING)
     private CarrierOrderStatusEnum carrierOrderStatusEnum;
 
     @Column(name = "quantity")

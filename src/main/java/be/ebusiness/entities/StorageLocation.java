@@ -35,6 +35,7 @@ public class StorageLocation implements Serializable {
 
     @Column(name = "type_location")
     @NotNull
+    @Enumerated(EnumType.STRING)
     private StorageLocationTypeLocationEnum storageLocationTypeLocationEnum;
 
     @Column(name="created_at")

@@ -1,7 +1,6 @@
 package be.ebusiness.beans;
 
 import be.ebusiness.entities.Item;
-import be.ebusiness.entities.ItemStorageLocation;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;

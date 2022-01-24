@@ -25,6 +25,8 @@ It allows :
 
 This site was designed to showcase my skills in computer development.
 
+The site is still under development.
+
 ## Technologies :computer: 
 
 **IDE :** Intellij
